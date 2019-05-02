@@ -5,3 +5,11 @@
   color: #fff;
   cursor: pointer;
 }
+
+#lichess-arc-sub {
+  padding: 5px;
+  border-radius: 2px;
+  background-color: #6441A4;
+  color: #fff;
+  cursor: pointer;
+}
