@@ -1,3 +1,24 @@
+function setNameColors(){
+  fetch('https://tvdhout.nl/getsubs.php', {method: "GET"})
+  .then((resp) => resp.text())
+  .then(function(data){
+    subs = data.split("<br>");
+    return subs;
+  }).then(function(subs){
+    var challenges = document.getElementsByClassName("challenge");
+
+    for (var i = 0; i < challenges.length; i++) {
+      challengerName = challenges[i].getElementsByClassName("user-link")[0].innerText.split(" ")[0].toLowerCase();
+      if(subs.includes(challengerName)){
+        challenges[i].getElementsByClassName("user-link")[0].style.color = "#9e84ce";
+      }
+    }
+  })
+  .catch(function(error){
+    alert(error);
+  });
+}
+
 function acceptChallenge() {
   var challenges = document.getElementsByClassName("challenge");
   var challenge = challenges[Math.floor(Math.random() * challenges.length)]
@@ -19,26 +40,24 @@ function acceptSubChallenge() {
   })
   .then(function(subs){
   	
-  var subChallenges = [];
+    var subChallenges = [];
 
-  for (var i = 0; i < challenges.length; i++) {
-    challengerName = challenges[i].getElementsByClassName("user_link")[0].innerText.split(" ")[0];
-    if(subs.includes(challengerName)){
-      subChallenges.push(challenges[i])
+    for (var i = 0; i < challenges.length; i++) {
+      challengerName = challenges[i].getElementsByClassName("user-link")[0].innerText.split(" ")[0].toLowerCase();
+      if(subs.includes(challengerName)){
+        subChallenges.push(challenges[i]);
+      }
     }
-  }
-  
-  if(subChallenges.length > 0){
-    var challenge = subChallenges[Math.floor(Math.random() * subChallenges.length)]
-    challenge.getElementsByClassName("accept")[0].click();
-  }
+
+    if(subChallenges.length > 0){
+      var challenge = subChallenges[Math.floor(Math.random() * subChallenges.length)];
+      challenge.getElementsByClassName("accept")[0].click();
+    }
 
   })
   .catch(function(error){
     alert(error);
   })
-
-  
 }
 
 function init(container) {
@@ -53,20 +72,23 @@ function init(container) {
   subdiv.id = "lichess-arc-sub";
   subdiv.onclick = acceptSubChallenge;
   container.prepend(subdiv);
+  setNameColors();
 }
 function loadContainer() {
-  e = document.getElementById('challenge_notifications_tag');
+  e = document.getElementById('challenge-toggle');
   e.click(); // open challanges menu
   e.click(); // close challanges menu
 }
 function initWhenContainerLoaded() {
-  var container = document.getElementById("challenge_app");
+  var container = document.getElementById("challenge-app");
   if (container.className.indexOf("rendered") > 0) {
     init(container);
   } else {
     loadContainer();
     setTimeout(initWhenContainerLoaded, 100);
   }
+  document.getElementById("challenge-app").addEventListener("mouseenter", setNameColors);
+  document.getElementById('challenge-toggle').addEventListener("mouseenter", setNameColors);
 }
 
 initWhenContainerLoaded();

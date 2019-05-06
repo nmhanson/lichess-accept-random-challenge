@@ -9,7 +9,9 @@
 #lichess-arc-sub {
   padding: 5px;
   border-radius: 2px;
-  background-color: #6441A4;
+  background: #6441A4 url('https://tvdhout.nl/twitch-logo.png') no-repeat left center;
+  background-size: 19px 19px;
+  background-origin: content-box;
   color: #fff;
   cursor: pointer;
 }
