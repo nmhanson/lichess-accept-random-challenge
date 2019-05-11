@@ -12,6 +12,9 @@ function setNameColors(){
       if(subs.includes(challengerName)){
         challenges[i].getElementsByClassName("user-link")[0].style.color = "#9e84ce";
       }
+      else{
+        challenges[i].getElementsByClassName("user-link")[0].style.color = "#ADADAF";
+      }
     }
   })
   .catch(function(error){
@@ -88,7 +91,7 @@ function initWhenContainerLoaded() {
     setTimeout(initWhenContainerLoaded, 100);
   }
   document.getElementById("challenge-app").addEventListener("mouseenter", setNameColors);
-  document.getElementById('challenge-toggle').addEventListener("mouseenter", setNameColors);
+  document.getElementById('challenge-toggle').addEventListener("click", setNameColors);
 }
 
 initWhenContainerLoaded();
