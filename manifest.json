@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "LichessARC",
+  "name": "Lichess Random Challenge",
   "author": "Simon Lammer, Thijs van den Hout",
   "description" : "Allows accepting a random (subscriber) challenge on Lichess.org",
   "version": "1.2",
-  "homepage_url": "https://github.com/SimonLammer/lichess-accept-random-challenge",
+  "homepage_url": "https://github.com/tvdhout/lichess-accept-random-challenge",
 
   "icons": {
     "48": "icons/48.png",
