@@ -2,14 +2,8 @@
 
 This webextension adds the ability to accept random challenges on [lichess](lichess.org).
 
-![](pictures/lichessARC.png)
+Added: accept random Twitch subscriber challenge for [Eric Rosen](https://www.twitch.tv/imrosen)
 
-## Availability
+This is just the front-end of the application. The backend uses the Twitch API, python, Django framework, and sqlite and is hosted on my [website](https://tvdhout.com)
 
-[![](pictures/firefox.png)](https://addons.mozilla.org/en-US/firefox/addon/lichessarc/)
-
-[![](pictures/chrome.png)](https://chrome.google.com/webstore/detail/lichessarc/kbfljnbakebelbhioimnbilgkplibfec)
-
-[![](pictures/msedge.png) Microsoft Edge is currently only available via local installation](https://github.com/SimonLammer/lichess-accept-random-challenge/issues/1)
-
-If you'd like to use this in another browser, let me know by [opening an issue](https://github.com/SimonLammer/lichess-accept-random-challenge/issues/new).
+![](pictures/subchallenge.png)
