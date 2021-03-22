@@ -2,19 +2,18 @@
   "manifest_version": 2,
   "name": "Lichess Random Challenge",
   "author": "Simon Lammer, Thijs van den Hout",
-  "description" : "Allows accepting a random (subscriber) challenge on Lichess.org",
+  "description": "Allows accepting a random (subscriber) challenge on Lichess.org",
   "version": "1.2",
   "homepage_url": "https://github.com/tvdhout/lichess-accept-random-challenge",
-
+  "permissions": ["https://tvdhout.com/ericrosen/get/"],
   "icons": {
     "48": "icons/48.png",
     "128": "icons/128.png"
   },
-
   "content_scripts": [
     {
       "matches": ["*://*.lichess.org/*", "*://lichess.org/*"],
-      "js": ["lichessARC.js"],
+      "js": ["./dist/bundle.js"],
       "css": ["lichessARC.css"]
     }
   ]
